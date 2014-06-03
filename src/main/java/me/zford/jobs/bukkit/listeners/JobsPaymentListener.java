@@ -81,6 +81,11 @@ public class JobsPaymentListener implements Listener {
         Block block = event.getBlock();
         if (block == null)
             return;
+
+        // MutinyDev - 6/2/2014 - Disable jobs while in a vehicle to prevent AFK earning
+        if (event.getPlayer().getVehicle() != null){
+            return;
+        }
         
         if (block.getType().equals(Material.FURNACE) && block.hasMetadata(furnaceOwnerMetadata))
             block.removeMetadata(furnaceOwnerMetadata, plugin);
@@ -111,6 +116,11 @@ public class JobsPaymentListener implements Listener {
         Block block = event.getBlock();
         if (block == null)
             return;
+
+        // MutinyDev - 6/2/2014 - Disable jobs while in a vehicle to prevent AFK earning
+        if (event.getPlayer().getVehicle() != null){
+            return;
+        }
         
         // make sure plugin is enabled
         if(!plugin.isEnabled()) return;
