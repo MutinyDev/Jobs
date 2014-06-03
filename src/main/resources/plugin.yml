@@ -1,7 +1,7 @@
 name: Jobs
 description: Job plugin for bukkit
 main: me.zford.jobs.bukkit.JobsPlugin
-version: ${build.version}
+version: CUSTOM
 author: phrstbrn
 softdepend: [Vault]
 commands:
