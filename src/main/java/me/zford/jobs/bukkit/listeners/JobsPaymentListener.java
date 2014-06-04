@@ -86,6 +86,11 @@ public class JobsPaymentListener implements Listener {
         if (event.getPlayer().getVehicle() != null){
             return;
         }
+
+        // MutinyDev - 6/3/2014 - Disable jobs while in water to prevent AFK earning
+        if (event.getPlayer().getLocation().getBlock().getType() == Material.WATER){
+            return;
+        }
         
         if (block.getType().equals(Material.FURNACE) && block.hasMetadata(furnaceOwnerMetadata))
             block.removeMetadata(furnaceOwnerMetadata, plugin);
@@ -119,6 +124,11 @@ public class JobsPaymentListener implements Listener {
 
         // MutinyDev - 6/2/2014 - Disable jobs while in a vehicle to prevent AFK earning
         if (event.getPlayer().getVehicle() != null){
+            return;
+        }
+
+        // MutinyDev - 6/3/2014 - Disable jobs while in water to prevent AFK earning
+        if (event.getPlayer().getLocation().getBlock().getType() == Material.WATER){
             return;
         }
         
