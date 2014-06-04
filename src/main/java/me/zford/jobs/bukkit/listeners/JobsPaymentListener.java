@@ -121,16 +121,6 @@ public class JobsPaymentListener implements Listener {
         Block block = event.getBlock();
         if (block == null)
             return;
-
-        // MutinyDev - 6/2/2014 - Disable jobs while in a vehicle to prevent AFK earning
-        if (event.getPlayer().getVehicle() != null){
-            return;
-        }
-
-        // MutinyDev - 6/3/2014 - Disable jobs while in water to prevent AFK earning
-        if (event.getPlayer().getLocation().getBlock().getType() == Material.WATER){
-            return;
-        }
         
         // make sure plugin is enabled
         if(!plugin.isEnabled()) return;
